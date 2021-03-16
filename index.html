@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <h1 id="tit">hello</h1>
+
+      </div>
+
+    </div>
+    <script>
+//Consegna
+//Il computer deve generare 16 numeri casuali tra 1 e 100.
+//I numeri non possono essere duplicati.
+//In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
+//L’utente non può inserire più volte lo stesso numero.
+//Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+//La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
+//Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+var utnt = parseInt(prompt('dimmi un numero'));
+for (var i = 0; i < 5; i++) {
+  var numRnd = Math.floor(Math.random()*5)+1;
+  console.log(numRnd);
+}
+
+if([numRnd] == utnt){
+  document.getElementById('tit').innerHTML = 'trovato';
+}else{
+  document.getElementById('tit').innerHTML = 'non trovato';
+}
+
+    </script>
+  </body>
+</html>
