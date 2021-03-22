@@ -2,13 +2,20 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title></title>
   </head>
   <body>
 
     <div class="container">
       <div class="row">
-        <h1 id="tit">CAMPO MINATO</h1>
+        <div id='tit'>
+          <h1>CAMPO MINATO</h1>
+        </div>
         <table>
           <tr>
             <td data-number="1"></td>
@@ -134,6 +141,11 @@
       </div>
 
     </div>
+
+
+
+
+
     <script>
 
 
@@ -150,9 +162,26 @@
 // no = continua il ciclo di numeri
 // FINE CICLO
 
+var caselle = document.getElementsByTagName('td');
+//console.log(caselle);
+//creare un evento x ogni click(ogni cella)
+for (var i = 0; i < caselle.length; i++) {
+  //console.log(caselle[i].dataset.number);
+
+  caselle[i].addEventListener('click',click);
+
+}
+
+function click(){
+  console.log(this.dataset.number);// this = elemento che scatena la funzione
+  console.log('clicca su td');
 
 
+   this.innerHTML = this.dataset.number;
 
+}
+//click();
+// VERS 1 = GIOCO PARTE CON UN PROMPT
 function startGame(){
 
  var bombe = generatoreBombe(16);
@@ -191,9 +220,50 @@ function startGame(){
 
 startGame();
 
+//VER 2 = GIOCO CLICCANDO LE CELLE
+function startGame2(){
+
+//startGame2();
+
+ var bombe = generatoreBombe(16);
+ console.log(bombe);
+ var arrayNumUnt = [];
+ //console.log(bombe);
+
+ while(arrayNumUnt.length < (100-16)){
+   console.log(arrayNumUnt);
+   //var numU = parseInt(prompt('dammi un numero'));
+   //console.log(numU);
+   if(inArray(arrayNumUnt,numU)){//se l'array contiene il numero
+     //niente
+     console.log('già inserito questo numero');
+   }else{
+     arrayNumUnt.push(numU);
+
+     if(inArray(bombe,numU)){// se il numero dell'utente è contenuto nell'array di bombe
+
+       console.log('SEI MORTO');
+       break;
+
+     }else{//altrimenti li metto nell'arrey nell'arrey dei numeri dell'utente
+
+       console.log('push ' + numU);
+     }
+   }
+ }
+
+ // console.log(numU);
+ // console.log(bombe);
+
+ console.log(arrayNumUnt);          // lungh.num utente - il num bomba
+ console.log(('hai totalizzato: ' + (arrayNumUnt.length-1) + ' punti'));
+}
+
+
+  //controllo se nell'array c'è in numero , tramite un booleano
 function inArray(array,value){
   value = parseInt(value);
-  //controllo se nell'array c'è in numero , tramite un booleano
+
   var valueBool = array.includes(value);
 
   if(valueBool === true){
@@ -231,6 +301,8 @@ function numRandom(min, max){
   var rnd = Math.floor(rnd) + min + 1;
   return rnd;
 }
+
+
 
     </script>
   </body>
