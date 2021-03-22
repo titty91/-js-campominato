@@ -8,8 +8,129 @@
 
     <div class="container">
       <div class="row">
-        <h1 id="tit">hello</h1>
-
+        <h1 id="tit">CAMPO MINATO</h1>
+        <table>
+          <tr>
+            <td data-number="1"></td>
+            <td data-number="2"></td>
+            <td data-number="3"></td>
+            <td data-number="4"></td>
+            <td data-number="5"></td>
+            <td data-number="6"></td>
+            <td data-number="7"></td>
+            <td data-number="8"></td>
+            <td data-number="9"></td>
+            <td data-number="10"></td>
+          </tr>
+          <tr>
+            <td data-number="11"></td>
+            <td data-number="12"></td>
+            <td data-number="13"></td>
+            <td data-number="14"></td>
+            <td data-number="15"></td>
+            <td data-number="16"></td>
+            <td data-number="17"></td>
+            <td data-number="18"></td>
+            <td data-number="19"></td>
+            <td data-number="20"></td>
+          </tr>
+          <tr>
+            <td data-number="21"></td>
+            <td data-number="22"></td>
+            <td data-number="23"></td>
+            <td data-number="24"></td>
+            <td data-number="25"></td>
+            <td data-number="26"></td>
+            <td data-number="27"></td>
+            <td data-number="28"></td>
+            <td data-number="29"></td>
+            <td data-number="30"></td>
+          </tr>
+          <tr>
+            <td data-number="31"></td>
+            <td data-number="32"></td>
+            <td data-number="33"></td>
+            <td data-number="34"></td>
+            <td data-number="35"></td>
+            <td data-number="36"></td>
+            <td data-number="37"></td>
+            <td data-number="38"></td>
+            <td data-number="39"></td>
+            <td data-number="40"></td>
+          </tr>
+          <tr>
+            <td data-number="41"></td>
+            <td data-number="42"></td>
+            <td data-number="43"></td>
+            <td data-number="44"></td>
+            <td data-number="45"></td>
+            <td data-number="46"></td>
+            <td data-number="47"></td>
+            <td data-number="48"></td>
+            <td data-number="49"></td>
+            <td data-number="50"></td>
+          </tr>
+          <tr>
+            <td data-number="51"></td>
+            <td data-number="52"></td>
+            <td data-number="53"></td>
+            <td data-number="54"></td>
+            <td data-number="55"></td>
+            <td data-number="56"></td>
+            <td data-number="57"></td>
+            <td data-number="58"></td>
+            <td data-number="59"></td>
+            <td data-number="60"></td>
+          </tr>
+          <tr>
+            <td data-number="61"></td>
+            <td data-number="62"></td>
+            <td data-number="63"></td>
+            <td data-number="64"></td>
+            <td data-number="65"></td>
+            <td data-number="66"></td>
+            <td data-number="67"></td>
+            <td data-number="68"></td>
+            <td data-number="69"></td>
+            <td data-number="70"></td>
+          </tr>
+          <tr>
+            <td data-number="71"></td>
+            <td data-number="72"></td>
+            <td data-number="73"></td>
+            <td data-number="74"></td>
+            <td data-number="75"></td>
+            <td data-number="76"></td>
+            <td data-number="77"></td>
+            <td data-number="78"></td>
+            <td data-number="79"></td>
+            <td data-number="80"></td>
+          </tr>
+          <tr>
+            <td data-number="81"></td>
+            <td data-number="82"></td>
+            <td data-number="83"></td>
+            <td data-number="84"></td>
+            <td data-number="85"></td>
+            <td data-number="86"></td>
+            <td data-number="87"></td>
+            <td data-number="88"></td>
+            <td data-number="89"></td>
+            <td data-number="90"></td>
+          </tr>
+          <tr>
+            <td data-number="91"></td>
+            <td data-number="92"></td>
+            <td data-number="93"></td>
+            <td data-number="94"></td>
+            <td data-number="95"></td>
+            <td data-number="96"></td>
+            <td data-number="97"></td>
+            <td data-number="98"></td>
+            <td data-number="99"></td>
+            <td data-number="100"></td>
+          </tr>
+        </table>
       </div>
 
     </div>
@@ -17,23 +138,64 @@
 
 
 //partenza
-function startGame(){
-  //numero random genera genera bombe
+
+//numero random genera genera bombe
 
 //CICLO
-  //chiedi un numero all'utente
-  // controllare che il numero sia già stato creato
+//chiedi un numero all'utente
+// controllare che il numero sia già stato creato
 
- // il numero corrisponde alla bomba:
- // si= fine gioco
- // no = continua il ciclo di numeri
+// il numero corrisponde alla bomba:
+// si= fine gioco
+// no = continua il ciclo di numeri
 // FINE CICLO
 
+
+
+
+function startGame(){
+
+ var bombe = generatoreBombe(16);
+ console.log(bombe);
+ var arrayNumUnt = [];
+ //console.log(bombe);
+
+ while(arrayNumUnt.length < (100-16)){
+   console.log(arrayNumUnt);
+   var numU = parseInt(prompt('dammi un numero'));
+   console.log(numU);
+   if(inArray(arrayNumUnt,numU)){//se l'array contiene il numero
+     //niente
+     console.log('già inserito questo numero');
+   }else{
+     arrayNumUnt.push(numU);
+
+     if(inArray(bombe,numU)){// se il numero dell'utente è contenuto nell'array di bombe
+
+       console.log('SEI MORTO');
+       break;
+
+     }else{//altrimenti li metto nell'arrey nell'arrey dei numeri dell'utente
+
+       console.log('push ' + numU);
+     }
+   }
+ }
+
+ // console.log(numU);
+ // console.log(bombe);
+
+ console.log(arrayNumUnt);          // lungh.num utente - il num bomba
+ console.log(('hai totalizzato: ' + (arrayNumUnt.length-1) + ' punti'));
 }
 
+startGame();
+
 function inArray(array,value){
+  value = parseInt(value);
   //controllo se nell'array c'è in numero , tramite un booleano
   var valueBool = array.includes(value);
+
   if(valueBool === true){
     return true;
   }else{
@@ -42,15 +204,14 @@ function inArray(array,value){
   return valueBool;
 }
 
-
+// GENERATORE DI BOMBE - - - - -  - - - -  -
 function generatoreBombe(num){
 
   var bombe = [];
-
-  while(bombe.lenght < num){// finchè la lunghezza dell'array bombe sarà < al numero che devo genere io continuo
+  while(bombe.length < num){// finchè la lunghezza dell'array bombe sarà < al numero che devo genere io continuo
 
     var num = numRandom(1,100);
-      console.log(num, bombe.lenght);
+      //console.log(num, bombe.length);
 
       if(inArray(bombe,num)){
         //non succede niente
@@ -62,16 +223,14 @@ function generatoreBombe(num){
   return bombe;
 }
 
-var bombe = generatoreBombe(12);
-console.log(bombe);
-
+var bombe = generatoreBombe(16);
+//console.log(bombe);
 
 function numRandom(min, max){
   var rnd = Math.random() * (max - min);
   var rnd = Math.floor(rnd) + min + 1;
   return rnd;
 }
-console.log(numRandom(1,100));
 
     </script>
   </body>
